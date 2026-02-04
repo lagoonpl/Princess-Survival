@@ -467,3 +467,6 @@ position = Vector2(1139, -59)
 
 [node name="slime2" parent="." instance=ExtResource("6_p57ef")]
 position = Vector2(626, -72)
+
+[node name="slime3" parent="." instance=ExtResource("6_p57ef")]
+position = Vector2(870, -7)
