@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://c50kikkapjlm7"]
+
+[ext_resource type="Script" uid="uid://b1gpnssceycs2" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://bgj8bqs1b0fvg" path="res://Screenshot_20260202_142929.png" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://ei2cao6g7p3w" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_l6cm7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqqt6"]
+texture = ExtResource("1_ekxnf")
+modulate_color = Color(0.49354547, 0.49354553, 0.49354553, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0.3503571, 0.67858404, 0.50944734, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bqqt6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bqqt6")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.0
+offset_top = -74.0
+offset_right = 258.0
+offset_bottom = 273.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Start_game" type="Button" parent="Container"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.4396458, 0.40275556, 0.91058403, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
+text = "Start Game"
+
+[node name="Options" type="Button" parent="Container"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.4396458, 0.40275556, 0.91058403, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+text = "Load"
+
+[node name="Exit" type="Button" parent="Container"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.4396458, 0.40275556, 0.91058403, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -180.0
+offset_top = 46.0
+offset_right = 187.0
+offset_bottom = 165.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 64
+text = "Princess Survival"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Container/Start_game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="Container/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Container/Exit" to="." method="_on_exit_pressed"]
